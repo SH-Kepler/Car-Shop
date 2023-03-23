@@ -30,6 +30,10 @@ class CarModel {
   public async findAll(): Promise<ICar[]> {
     return this.model.find();
   }
+
+  public async findById(id: string): Promise<ICar | undefined | null> {
+    return this.model.findById(id);
+  }
 }
 
 export default CarModel;
