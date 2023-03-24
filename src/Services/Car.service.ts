@@ -40,6 +40,14 @@ class CarService {
     if (!car) return { status: 404, message: 'Car not found' };
     return { status: 200, response: new Car(car) };
   }
+
+  public async updateCar(id: string, car: ICar) {
+    const carODM = new CarModel();
+    if (!isValidObjectId(id)) return { status: 422, message: 'Invalid mongo id' };
+    const toUpdateCar = await carODM.update(id, car);
+    if (!toUpdateCar) return { status: 404, message: 'Car not found' };
+    return { status: 200, response: new Car(toUpdateCar) };
+  }
 }
 
 export default CarService;
