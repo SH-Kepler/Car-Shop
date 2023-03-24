@@ -31,6 +31,15 @@ class MotorcycleController {
     if (message) return this.res.status(status).json({ message });
     return this.res.status(status).json(response);
   }
+
+  public async update() {
+    const { id } = this.req.params;
+    const { body } = this.req;
+
+    const { status, message, response } = await this.service.updateMotorcycle(id, body);
+    if (message) return this.res.status(status).json({ message });
+    return this.res.status(status).json(response);
+  }
 }
 
 export default MotorcycleController;
