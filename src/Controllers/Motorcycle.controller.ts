@@ -18,6 +18,19 @@ class MotorcycleController {
     const newMotorcycle = await this.service.createNewMotorcycle(body);
     return this.res.status(201).json(newMotorcycle);
   }
+
+  public async findAll() {
+    const motorcycles = await this.service.findAllMotorcycles();
+    return this.res.status(200).json(motorcycles);
+  }
+
+  public async findById() {
+    const { id } = this.req.params;
+
+    const { status, message, response } = await this.service.findMotorcycleById(id);
+    if (message) return this.res.status(status).json({ message });
+    return this.res.status(status).json(response);
+  }
 }
 
 export default MotorcycleController;
