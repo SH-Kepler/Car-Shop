@@ -24,6 +24,14 @@ class MotorcycleService {
     if (!motorcycle) return { status: 404, message: 'Motorcycle not found' };
     return { status: 200, response: new Motorcycle(motorcycle) };
   }
+
+  public async updateMotorcycle(id: string, motorcycle: IMotorcycle) {
+    const motorcycleODM = new MotorcycleModel();
+    if (!isValidObjectId(id)) return { status: 422, message: 'Invalid mongo id' };
+    const toUpdateMotorcycle = await motorcycleODM.update(id, motorcycle);
+    if (!toUpdateMotorcycle) return { status: 404, message: 'Motorcycle not found' };
+    return { status: 200, response: new Motorcycle(toUpdateMotorcycle) };
+  }
 }
 
 export default MotorcycleService;
