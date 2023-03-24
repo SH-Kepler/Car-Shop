@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import ICar from '../Interfaces/ICar';
 import CarService from '../Services/Car.service';
 
 class CarController {
@@ -14,17 +13,9 @@ class CarController {
   }
 
   public async create() {
-    const car: ICar = {
-      model: this.req.body.model,
-      year: this.req.body.year,
-      color: this.req.body.color,
-      status: this.req.body.status,
-      buyValue: this.req.body.buyValue,
-      doorsQty: this.req.body.doorsQty,
-      seatsQty: this.req.body.seatsQty,
-    };
+    const { body } = this.req;
 
-    const newCar = await this.service.createNewCar(car);
+    const newCar = await this.service.createNewCar(body);
     return this.res.status(201).json(newCar);
   }
 
@@ -35,7 +26,17 @@ class CarController {
 
   public async findById() {
     const { id } = this.req.params;
+
     const { status, message, response } = await this.service.findCarById(id);
+    if (message) return this.res.status(status).json({ message });
+    return this.res.status(status).json(response);
+  }
+
+  public async update() {
+    const { id } = this.req.params;
+    const { body } = this.req;
+
+    const { status, message, response } = await this.service.updateCar(id, body);
     if (message) return this.res.status(status).json({ message });
     return this.res.status(status).json(response);
   }
