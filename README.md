@@ -1,13 +1,42 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+## Bem vindo ao repositório Car-Shop! 🚙
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+### Descrição:
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Nesse projeto, apliquei os conceitos de programação orientada a objetos (<code>poo</code>) para a construção de uma API com <code>CRUD</code> para gerenciar uma concessionária de veículos. Isso foi feito utilizando o banco de dados <code>MongoDB</code> através do framework do <code>Mongoose</code>.
+
+<hr/>
+
+# 💡 Tecnologias utilizadas
+
+**Back-end**
+* ESLint
+* Node.js
+* Express
+* TypeScript
+* MongoDB
+* Mongoose
+
+**Tests**
+* Chai
+* Sinon
+* Mocha
+
+# Preparação antes de iniciar o projeto
+* ⚠️Garanta que sua máquina tenha o `node` instalado na versão 16, caso não esteja você pode usar o [`nvm`](https://github.com/nvm-sh/nvm#installing-and-updating) para fazer o gerenciamento das versões.
+
+## acesse o projeto localmente:
+Clone o projeto:
+
+```
+git clone git@github.com:SH-Kepler/Car-Shop.git
+```
+Vá para o diretório do projeto:
+
+```
+cd Car-Shop
+```
+Instale as dependências da pasta raiz:
+
+```
+npm install
+```
